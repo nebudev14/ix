@@ -1,9 +1,4 @@
 {
-	"extends": [
-		"eslint:recommended",
-		"prettier"
-	],
-	"rules": {
-		"prettier/prettier": "warn"
-	}
+  "extends": ["eslint:recommended", "next/core-web-vitals", "prettier"],
+  "root": true
 }
