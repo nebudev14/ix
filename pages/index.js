@@ -1,7 +1,8 @@
 export default function Home() {
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <h1>atomhacks is based</h1>
+    <div className="flex items-center justify-center min-h-screen">
+      
+      <h1 className="">atomhacks is based</h1>
     </div>
   );
 }
