@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps, router }) {
     exit: { opacity: 0, x: 0, y: -100 },
   };
   return (
-    <>
+    <div className=" bg-slate-100">
       <AnimatePresence exitBeforeEnter />
       <motion.div
         initial="hidden"
@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps, router }) {
       >
         <Component {...pageProps} />
       </motion.div>
-    </>
+    </div>
   );
 }
 
