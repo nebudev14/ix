@@ -20,10 +20,11 @@ const Landing = () => {
         <h1 className="mb-2 text-5xl font-thin">
           Bronx Science&apos;s <br /> <b className="text-yellow-500">9th</b> Annual Hackathon
         </h1>
-        <h1 className="py-2 text-xl font-semibold">March 11th, 2023</h1>
-        <p className="break-words ">
+        <h1 className="py-2 text-xl font-semibold">March 18th, 2023</h1>
+        <p className="mb-4 break-words">
           Explore, build, innovate. Come join us for 12 full hours <br /> of creativity, excitement, and building!
         </p>
+        <button className="px-4 py-2 text-xl text-white bg-yellow-500 rounded-md">REGISTER</button>
       </div>
     </div>
   );
