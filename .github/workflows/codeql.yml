@@ -1,4 +1,4 @@
-name: Continuous Integration
+name: "CodeQL"
 
 on:
   push:
@@ -9,25 +9,9 @@ on:
       - main
 
 jobs:
-  lint:
-    name: Lint
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Lint code
-        run: npm run lint
   analyze:
     name: Analyze
     runs-on: ubuntu-latest
-
     permissions:
       actions: read
       contents: read
@@ -54,12 +38,3 @@ jobs:
         uses: github/codeql-action/analyze@v2
         with:
           category: "/language:${{matrix.language}}"
-  dependency-review:
-    name: Dependency Review
-    runs-on: ubuntu-latest
-    steps:
-      - name: "Checkout Repository"
-        uses: actions/checkout@v3
-
-      - name: "Dependency Review"
-        uses: actions/dependency-review-action@v2
