@@ -1,6 +1,18 @@
-import Image from "next/image";
+//import Image from "next/image";
+import { motion, useMotionValue, useTransform, animate } from "framer-motion";
+import { useEffect } from "react";
+import { ordinal_suffix_of } from "../lib/ordinal.js";
 
 const Landing = () => {
+  const years = useMotionValue(1);
+  const yearsRender = useTransform(years, (latest) => ordinal_suffix_of(Math.round(latest)));
+
+  useEffect(() => {
+    const animation = animate(years, 9, { duration: 3 });
+
+    return animation.stop;
+  }, [years]);
+
   return (
     <div className="flex items-center justify-center min-h-screen ">
       {/* Left side of page */}
@@ -18,7 +30,9 @@ const Landing = () => {
       {/* Right side of page */}
       <div className="flex flex-col items-start justify-start ml-6">
         <h1 className="mb-2 text-5xl font-thin">
-          Bronx Science&apos;s <br /> <b className="text-yellow-500">9th</b> Annual Hackathon
+          Bronx Science&apos;s <motion.b className="text-yellow-500">{yearsRender}</motion.b>
+          <br />
+          Annual Hackathon
         </h1>
         <h1 className="py-2 text-xl font-semibold">March 18th, 2023</h1>
         <p className="mb-4 break-words">
