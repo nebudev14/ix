@@ -8,15 +8,15 @@ const Landing = () => {
   const yearsRender = useTransform(years, (latest) => ordinal_suffix_of(Math.round(latest)));
 
   useEffect(() => {
-    const animation = animate(years, 9, { duration: 3 });
+    const animation = animate(years, 9, { duration: 2 });
 
     return animation.stop;
   }, [years]);
 
   return (
-    <div className="flex items-center justify-center min-h-screen ">
+    <div className="flex flex-row grow items-center justify-center min-h-screen ">
       {/* Left side of page */}
-      <div className="flex items-end justify-center mr-6">
+      <div className="flex basis-1/2 items-end justify-end mr-6">
         <div className="border-l-4 border-green-400">
           {" "}
           <h1 className="px-4 border-l-8 border-green-400 text-9xl font-aquire">
@@ -28,7 +28,7 @@ const Landing = () => {
       </div>
 
       {/* Right side of page */}
-      <div className="flex flex-col items-start justify-start ml-6">
+      <div className="flex basis-1/2 flex-col items-start justify-start ml-6">
         <h1 className="mb-2 text-5xl font-thin">
           Bronx Science&apos;s <motion.b className="text-yellow-500">{yearsRender}</motion.b>
           <br />
