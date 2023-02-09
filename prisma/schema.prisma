@@ -15,6 +15,7 @@ model ExamplePerson {
   name  String
   email String
   posts ExamplePost[]
+  role  Role                @default(COMPETITOR)
 }
 
 model ExamplePost {
@@ -24,4 +25,9 @@ model ExamplePost {
   content  String
   likes    Int
   poster   ExamplePerson @relation(fields: [posterId], references: [id])
+}
+
+enum Role {
+  COMPETITOR
+  ADMIN
 }
