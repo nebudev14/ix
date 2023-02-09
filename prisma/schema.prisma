@@ -11,7 +11,7 @@ datasource db {
 }
 
 model ExamplePerson {
-  id    String        @id
+  id    String        @id   @default(cuid())
   name  String
   email String
   posts ExamplePost[]
