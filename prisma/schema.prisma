@@ -11,11 +11,11 @@ datasource db {
 }
 
 model ExamplePerson {
-  id    String        @id   @default(cuid())
+  id    String        @id @default(cuid())
   name  String
   email String
   posts ExamplePost[]
-  role  Role                @default(COMPETITOR)
+  role  Role          @default(COMPETITOR)
 }
 
 model ExamplePost {
@@ -25,6 +25,38 @@ model ExamplePost {
   content  String
   likes    Int
   poster   ExamplePerson @relation(fields: [posterId], references: [id])
+}
+
+model User {
+  id           String      @id @default(cuid())
+  name         String
+  email        String
+  osis         String
+  submissionId String?
+  submission   Submission? @relation(fields: [submissionId], references: [id])
+  role         Role        @default(COMPETITOR)
+  experience   Experience
+}
+
+model Submission {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  media       String[]
+  members     User[]
+  tracks      Track[]  @default([GENERAL])
+}
+
+enum Track {
+  GENERAL
+  BEGINNER
+  SPONSOR_PENDING
+}
+
+enum Experience {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
 }
 
 enum Role {
