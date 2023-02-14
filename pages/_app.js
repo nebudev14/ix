@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps, router }) {
   };
   return (
     <div className=" bg-slate-100">
-      <AnimatePresence exitBeforeEnter />
+      <AnimatePresence mode="wait" />
       <motion.div
         initial="hidden"
         animate="enter"
