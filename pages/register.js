@@ -1,23 +1,34 @@
+import { useSession, signIn, signOut } from "next-auth/react";
+
 function Register() {
-  return (
-    <>
-      <form action="/api/register" method="POST">
-        <label htmlFor="name">Name</label>
-        <input type="text" id="name" name="name" />
-        <label htmlFor="email">Email</label>
-        <input type="text" id="email" name="email" />
-        <label htmlFor="osis">OSIS</label>
-        <input type="text" id="osis" name="osis" />
-        <label htmlFor="beginner">Beginner</label>
-        <input type="radio" id="beginner" name="experience" value="BEGINNER" />
-        <label htmlFor="intermediate">Intermediate</label>
-        <input type="radio" id="intermediate" name="experience" value="INTERMEDIATE" />
-        <label htmlFor="advanced">Advanced</label>
-        <input type="radio" id="advanced" name="experience" value="ADVANCED" />
-        <button type="submit">Submit</button>
-      </form>
-    </>
-  );
+  const { data: session, status } = useSession();
+
+  if (status == "unauthenticated") {
+    return (
+      <div>
+        <button onClick={() => signIn()}>Sign In</button>
+      </div>
+    );
+  }
+  if (status == "loading") {
+    return <h1>Loading</h1>;
+  }
+  if (status == "authenticated") {
+    console.log(session);
+    return (
+      <div>
+        {session.user.email.endsWith("@bxscience.edu") ? (
+          <>
+            <h1>`Authenticated {session.user.email}`</h1>
+            <img src={session.user.image} />
+          </>
+        ) : (
+          <h1>Please use your bxsci email</h1>
+        )}
+        <button onClick={() => signOut()}>Sign Out</button>
+      </div>
+    );
+  }
 }
 
 export default Register;
