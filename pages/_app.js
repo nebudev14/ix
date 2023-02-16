@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps, router }) {
         animate="enter"
         exit="exit"
         variants={variants}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.5 }}
         key={router.asPath}
       >
         <Component {...pageProps} />
