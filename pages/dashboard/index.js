@@ -1,35 +1,34 @@
 import { useSession, signIn, signOut } from "next-auth/react";
-import { getServerSession } from "next-auth";
 import prisma from "../../lib/prisma";
+import { getToken } from "next-auth/jwt";
+import { useEffect } from "react";
+import Setup from "../../components/dashboard/Setup";
 
-function Dashboard() {
+export default function Dashboard({ user }) {
     const { data: session, status } = useSession();
     if (status == "loading") {
         return <h1>Loading</h1>;
     }
-    if (status == "unauthenticated") {
-        return (
-            <div>
-                <h1>You must sign in to view this page</h1>
-                <button onClick={() => signIn()}>Sign In</button>
-            </div>
-        );
-    }
 
-    if (status == "authenticated") {
-        console.log(session);
-        
-    }
+    // status must be authenticated
+    console.log(user)
     return (
         <div>
             <h1>Dashboard</h1>
+            {user.osis == null ? <Setup /> :
+                <>
+                    <h1>{user.name}</h1>
+                    <img src={user.image} />
+                </>
+            }
         </div>
     )
 }
 
-export async function getServerSideProps({ req, res}) {
-    const { data: session, status } = await getServerSession(req, res);
-    if (status == "unauthenticated") {
+export async function getServerSideProps({ req, res }) {
+    const jwt = await getToken({ req });
+    console.log(jwt)
+    if (!jwt) {
         return {
             redirect: {
                 destination: "/api/auth/signin/google",
@@ -37,9 +36,23 @@ export async function getServerSideProps({ req, res}) {
             }
         }
     }
-    
+
     const user = await prisma.user.findUnique({
-        
-    })
+        where: {
+            id: jwt.sub
+        }
+    });
+
+    if (!user) {
+        return {
+            redirect: {
+                destination: "/register",
+                permanent: false
+            }
+        }
+    }
+    return {
+        props: { user }
+    }
 
 }
