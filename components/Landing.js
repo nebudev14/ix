@@ -1,6 +1,6 @@
 //import Image from "next/image";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
-import Link from "next/link.js";
+import { signIn } from "next-auth/react";
 import { useEffect } from "react";
 import { ordinal_suffix_of } from "../lib/ordinal.js";
 
@@ -39,9 +39,8 @@ const Landing = () => {
         <p className="mb-4 break-words">
           Explore, build, innovate. Come join us for 12 full hours <br /> of creativity, excitement, and building!
         </p>
-        <Link href="/register">
-          <button className="px-4 py-2 text-xl text-white bg-yellow-500 rounded-md">REGISTER</button>
-        </Link>
+        <button className="px-4 py-2 text-xl text-white bg-yellow-500 rounded-md"
+          onClick={() => signIn("google", { callbackUrl: "/dashboard" })}>REGISTER</button>
       </div>
     </div>
   );

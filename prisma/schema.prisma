@@ -53,6 +53,7 @@ model User {
   image         String
   osis          String?
   submissionId  String?
+  initialized   Boolean     @default(false)
   accounts      Account[]
   submission    Submission? @relation(fields: [submissionId], references: [id])
   role          Role        @default(COMPETITOR)
