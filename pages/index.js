@@ -2,7 +2,6 @@ import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { Link } from "next/link";
 import { useEffect } from "react";
 import { useSession, signIn } from "next-auth/react";
-import { useSession, signIn } from "next-auth/react";
 import { ordinal_suffix_of } from "../lib/ordinal.js";
 import NavBar from "../components/NavBar.js";
 
@@ -20,7 +19,7 @@ function Index() {
   return (
     <div>
       <NavBar />
-      <div className="flex grow items-center justify-center min-h-100% ">
+      <div className="py-40 flex grow items-center justify-center min-h-100% ">
         {/* Left side of page */}
         <div className="flex basis-1/2 items-end justify-end mr-6">
           <div className="border-l-4 border-green-400">
