@@ -11,8 +11,8 @@ function MyApp({ Component, pageProps: { session, ...pageProps }, router }) {
   };
   return (
     <SessionProvider session={session}>
-      <div className=" bg-slate-100">
-        <AnimatePresence exitBeforeEnter />
+      <div className="bg-slate-100">
+        <AnimatePresence mode="wait" />
         <motion.div
           initial="hidden"
           animate="enter"
