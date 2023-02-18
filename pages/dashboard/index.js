@@ -1,10 +1,10 @@
 import { signOut } from "next-auth/react";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { PlusIcon } from "@heroicons/react/24/solid";
 
 import Setup from "../../components/dashboard/Setup";
 import { getUser, redirect } from "../../lib/server";
-import Image from "next/image";
 
 export default function Dashboard({ user }) {
   const router = useRouter();
@@ -16,23 +16,35 @@ export default function Dashboard({ user }) {
     router.replace(router.asPath);
   };
 
+  if (!initialized) {
+    return <Setup setInitialized={setInitialized} />;
+  }
+
   console.log(user);
   return (
-    <div>
-      <h1>Dashboard</h1>
-      {!initialized ? (
-        <Setup setInitialized={setInitialized} />
-      ) : (
-        <>
-          <Image src={user.image} alt="Profile Picture" width={96} height={96} />
+    <div className="min-h-screen bg-neutral-900 font-bold font-montserrat text-white">
+      <div className="pt-4 pl-8">
+        <div className="flex justify-between">
+          <h1 className="text-6xl">Dashboard</h1>
+          <button className="mr-4 text-xl w-32 h-14 bg-red-400 rounded-full" onClick={() => signOut()}>
+            <p className="p-2">Sign Out</p>
+          </button>
+        </div>
+        <div className="mt-24">
+          <h1 className="text-5xl font-bold font-montserrat">Submissions</h1>
+          <div className="mt-4 max-w-sm h-36 rounded-lg bg-neutral-800 flex items-center justify-center">
+            <button className="group rounded-full bg-neutral-700 flex items-center justify-center w-16 h-16 hover:bg-sky-400 duration-200">
+              <PlusIcon className="w-8 h-8 fill-sky-400 group-hover:fill-white duration-200" />
+            </button>
+          </div>
+          {/* <Image src={user.image} alt="Profile Picture" width={96} height={96} />
           <h1>
             {user.name} - {user.osis}
           </h1>
           <h1>Email: {user.email}</h1>
-          <h1>Experience: {user.experience}</h1>
-          <button onClick={() => signOut()}>Sign Out</button>
-        </>
-      )}
+          <h1>Experience: {user.experience}</h1> */}
+        </div>
+      </div>
     </div>
   );
 }

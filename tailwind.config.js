@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       fontFamily: {
         aquire: ["Aquire"],
+        montserrat: ["Montserrat"],
       },
     },
   },

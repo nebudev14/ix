@@ -10,6 +10,7 @@
     "pretty": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\""
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.16",
     "@next-auth/prisma-adapter": "^1.0.5",
     "@prisma/client": "^4.10.0",
     "eslint": "^8.29.0",
