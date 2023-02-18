@@ -49,7 +49,7 @@ function Index() {
             </Link>
           ) : (
             <button
-              className="px-4 py-2 text-xl text-white bg-yellow-500 rounded-md"
+              className="relative border-2 font-bold border-black border-2 rounded-lg bg-transparent py-2.5 px-5 uppercase transition-colors before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full before:origin-top-left before:scale-x-0 before:bg-yellow-400 before:transition-transform before:duration-300 before:content-[''] before:hover:scale-x-100"
               onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
             >
               REGISTER
