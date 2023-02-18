@@ -1,10 +1,13 @@
+import Image from 'next/image';
+import Sample from '../public/atomhackspic.JPG'
+
 function About() {
     return(
         <div class="container mx-auto py-40 flex gap-20">
             <div class="relative">
                 <img class="h-1/4 absolute top-0 left-0 -z-10" src="public/atom.png" alt=""></img>
                 <div class="h-full rounded-full">
-                    <img src="public/atomhackspic.JPG"></img>
+                    <Image src={Sample}></Image>
                 </div>
                 <h1>Left (img area)</h1>
             </div>
