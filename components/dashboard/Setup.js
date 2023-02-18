@@ -1,7 +1,7 @@
 // Floating modal type thing
 
 // TODO: client side validation
-export default function Setup({ user, setInitialized }) {
+export default function Setup({ setInitialized }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         // ideally some sort of red error box
