@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { ordinal_suffix_of } from "../lib/ordinal.js";
 
 const Landing = () => {
-  const { data: session, loading } = useSession();
+  const { data: session } = useSession();
   const years = useMotionValue(1);
   const yearsRender = useTransform(years, (latest) => ordinal_suffix_of(Math.round(latest)));
 
