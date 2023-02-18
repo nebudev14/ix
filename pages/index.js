@@ -1,7 +1,7 @@
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import Link from "next/link.js";
 import { useEffect } from "react";
-import { useSession, signIn } from "next-auth/react"
+import { useSession, signIn } from "next-auth/react";
 import { ordinal_suffix_of } from "../lib/ordinal.js";
 
 function Index() {
@@ -40,14 +40,18 @@ function Index() {
         <p className="mb-4 break-words">
           Explore, build, innovate. Come join us for 12 full hours <br /> of creativity, excitement, and building!
         </p>
-        {session ?
+        {session ? (
           <Link href="/dashboard">
             <button className="px-4 py-2 text-xl text-white bg-yellow-500 rounded-md">CONTINUE TO DASHBOARD</button>
           </Link>
-          :
-          <button className="px-4 py-2 text-xl text-white bg-yellow-500 rounded-md"
-            onClick={() => signIn("google", { callbackUrl: "/dashboard" })}>REGISTER</button>
-        }
+        ) : (
+          <button
+            className="px-4 py-2 text-xl text-white bg-yellow-500 rounded-md"
+            onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
+          >
+            REGISTER
+          </button>
+        )}
       </div>
     </div>
   );
