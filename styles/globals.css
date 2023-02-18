@@ -13,6 +13,24 @@
 }
 
 @font-face {
+  font-family: "Montserrat";
+  src: url("../styles/fonts/Montserrat-Medium.ttf") format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../styles/fonts/Montserrat-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../styles/fonts/Montserrat-Black.ttf") format("truetype");
+  font-weight: 900;
+}
+
+@font-face {
   font-family: "Inter";
   src: url("../styles/fonts/Inter-Light.ttf");
 }
@@ -32,4 +50,8 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.content {
+  margin-top: 56px;
 }
