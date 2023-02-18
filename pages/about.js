@@ -1,6 +1,6 @@
-import Image from 'next/image';
-import Sample from '../public/atomhackspic.JPG'
-import Atom from '../public/atom.png'
+import Image from "next/image";
+import Sample from "../public/atomhackspic.JPG";
+import Atom from "../public/atom.png";
 
 function About() {
     return (
@@ -23,7 +23,5 @@ function About() {
     )
 
 }
-
-
 
 export default About;

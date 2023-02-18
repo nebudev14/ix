@@ -23,9 +23,9 @@ export const authOptions = {
       // TODO: actual error handling
       // some form of redirecting back to landing page with a red box
       // saying they used a non bxsci email
-      return false
+      return false;
     },
-    async jwt({ token, account, profile}) {
+    async jwt({ token, account, profile }) {
       if (account) {
         token.accessToken = account.access_token;
         token.id = profile.sub;
@@ -34,10 +34,10 @@ export const authOptions = {
     },
     async session({ session, token }) {
       session.accessToken = token.accessToken;
-      session.user.id = token.sub
+      session.user.id = token.sub;
       return session;
-    }
-  }
+    },
+  },
 };
 
 export default NextAuth(authOptions);
