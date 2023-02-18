@@ -1,12 +1,12 @@
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
-import { Link } from "next/link";
+import Link from "next/link.js";
 import { useEffect } from "react";
 import { useSession, signIn } from "next-auth/react";
 import { ordinal_suffix_of } from "../lib/ordinal.js";
-import NavBar from "../components/NavBar.js";
 
 function Index() {
   const { data: session } = useSession();
+  console.log(session)
   const years = useMotionValue(1);
   const yearsRender = useTransform(years, (latest) => ordinal_suffix_of(Math.round(latest)));
 
@@ -18,7 +18,6 @@ function Index() {
 
   return (
     <div>
-      <NavBar />
       <div className="py-40 flex grow items-center justify-center min-h-100% ">
         {/* Left side of page */}
         <div className="flex basis-1/2 items-end justify-end mr-6">
@@ -45,7 +44,7 @@ function Index() {
           </p>
           {session ? (
             <Link href="/dashboard">
-              <button className="px-4 py-2 text-xl text-white bg-yellow-500 rounded-md">CONTINUE TO DASHBOARD</button>
+              <button className="relative border-2 font-bold border-black border-2 rounded-lg bg-transparent py-2.5 px-5 uppercase transition-colors before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full before:origin-top-left before:scale-x-0 before:bg-yellow-400 before:transition-transform before:duration-300 before:content-[''] before:hover:scale-x-100">CONTINUE TO DASHBOARD</button>
             </Link>
           ) : (
             <button
