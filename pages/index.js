@@ -2,6 +2,7 @@ import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { Link } from "next/link";
 import { useEffect } from "react";
 import { useSession, signIn } from "next-auth/react";
+import { useSession, signIn } from "next-auth/react";
 import { ordinal_suffix_of } from "../lib/ordinal.js";
 import NavBar from "../components/NavBar.js";
 

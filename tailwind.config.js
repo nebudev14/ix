@@ -5,8 +5,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'aquire': ['Aquire']
-      }
+        aquire: ["Aquire"],
+      },
     },
   },
   plugins: [],
