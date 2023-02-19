@@ -1,28 +1,34 @@
-import Link from 'next/link'
-import Logo from '../public/logo.png'
+import Link from "next/link";
+import Logo from "../public/assets/logo.png";
+import Image from "next/image";
 
 const NavBar = () => {
-    return (
-        <div class='fixed left-0 top-0 w-full z-10 bg-white items-center'>
-            <div class='px-40 m-auto flex justify-between items-center p-4 text-black font-bold'>
-                <Link href="/"></Link>
-                <ul class='flex'>
-                    <li>
-                        <Link class='p-4 hover:text-gray-500 duration-300' href='/'>HOME</Link>
-                    </li>
-                    <li>
-                        <Link class='p-4 hover:text-gray-500 duration-300' href='/about'>ABOUT</Link>
-                    </li>
-                    <li>
-                        <Link class='p-4 hover:text-gray-500 duration-300' href='/gallery'>GALLERY</Link>
-                    </li>
-                    <li>
-                        <Link class='p-4 hover:text-gray-500 duration-300' href='/sponsors'>SPONSORS</Link>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    );
-}
- 
+  return (
+    <div className="fixed left-0 top-0 w-full h-16 z-10 bg-[#15803d] items-center">
+      <div className="m-auto flex justify-center items-center  text-white font-bold">
+        <Link className="p-3 text-4xl font-aquire justify-self-start text-white mr-auto" href="/">
+          ATOM HACKS
+        </Link>
+        <ul className="flex">
+          <li>
+            <Link className="p-4 hover:text-gray-500 duration-300" href="/about">
+              ABOUT
+            </Link>
+          </li>
+          <li>
+            <Link className="p-4 hover:text-gray-500 duration-300" href="/gallery">
+              GALLERY
+            </Link>
+          </li>
+          <li>
+            <Link className="p-4 hover:text-gray-500 duration-300" href="/sponsors">
+              SPONSORS
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </div>
+  );
+};
+
 export default NavBar;
