@@ -1,13 +1,11 @@
 import Link from "next/link";
-import Logo from "../public/assets/logo.png";
-import Image from "next/image";
 
 const NavBar = () => {
   return (
     <div className="fixed left-0 top-0 w-full h-16 z-10 bg-[#15803d] items-center">
       <div className="m-auto flex justify-center items-center  text-white font-bold">
-        <Link className="p-3 text-4xl font-aquire justify-self-start text-white mr-auto" href="/">
-          ATOM HACKS
+        <Link className="p-3 text-4xl font-morro justify-self-start text-white mr-auto" href="/">
+          ATOM HACKS IX
         </Link>
         <ul className="flex">
           <li>

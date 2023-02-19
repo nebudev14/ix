@@ -3,13 +3,9 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Aquire";
-  src: url("../styles/fonts/Aquire-BW0ox.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "Aquire-Light";
-  src: url("../styles/fonts/AquireLight-YzE0o.otf") format("opentype");
+  font-family: "Morro";
+  src: url("../styles/fonts/Morro-Regular.otf") format("opentype");
+  font-weight: normal;
 }
 
 @font-face {

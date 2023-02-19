@@ -1,13 +1,12 @@
 import Image from "next/image";
 import Sample from "../public/atomhackspic.JPG";
-import Atom from "../public/atom.png";
 
 function About() {
     return (
         <div class="container mx-auto py-40 flex gap-20">
             <div class="relative">
                 <div class="h-full shadow-2xl">
-                    <Image class="rounded-lg" src={Sample}></Image>
+                    <Image class="rounded-lg" src={Sample} alt=""></Image>
                 </div>
             </div>
 
