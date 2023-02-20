@@ -1,6 +1,7 @@
 import { signOut } from "next-auth/react";
-import { useState } from "react";
+import { useState, Fragment } from "react";
 import { useRouter } from "next/router";
+import { Transition, Dialog } from "@headlessui/react";
 import { PlusIcon } from "@heroicons/react/24/solid";
 
 import Setup from "../../components/dashboard/Setup";
@@ -10,23 +11,24 @@ export default function Dashboard({ user }) {
   const router = useRouter();
   // conditional hooks are not allowed :(
   const [initialized, _setInitialized] = useState(user.initialized);
+  const [isOpen, setIsOpen] = useState(true);
   // https://www.joshwcomeau.com/nextjs/refreshing-server-side-props/
   const setInitialized = (val) => {
     _setInitialized(val);
     router.replace(router.asPath);
   };
 
-  if (!initialized) {
-    return <Setup setInitialized={setInitialized} />;
-  }
-
   console.log(user);
   return (
     <div className="min-h-screen bg-neutral-900 font-bold font-montserrat text-white">
+      {!initialized && <Setup setInitialized={setInitialized} />}
       <div className="pt-4 pl-8">
         <div className="flex justify-between">
           <h1 className="text-6xl">Dashboard</h1>
-          <button className="mr-4 text-xl w-32 h-14 bg-red-400 rounded-full" onClick={() => signOut()}>
+          <button
+            className="mr-4 text-xl w-32 h-14 bg-red-400 rounded-full"
+            onClick={() => signOut({ callbackUrl: "/" })}
+          >
             <p className="p-2">Sign Out</p>
           </button>
         </div>
@@ -51,7 +53,7 @@ export default function Dashboard({ user }) {
 
 export async function getServerSideProps({ req }) {
   const user = await getUser(req);
-  if (!user) return redirect();
+  if (!user) return redirect("/api/auth/signin");
 
   return {
     props: { user },
