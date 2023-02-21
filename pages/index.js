@@ -28,7 +28,7 @@ function Index() {
         {/* Right side of page */}
         <div className="flex basis-1/2 flex-col items-start justify-start ml-6">
           <h1 className="mb-2 text-5xl font-thin">
-            Bronx Science&apos;s <motion.b className="text-yellow-500">{yearsRender}</motion.b>
+            Bronx Science&apos;s <motion.b className="text-green-500">{yearsRender}</motion.b>
             <br />
             Annual Hackathon
           </h1>
@@ -44,7 +44,7 @@ function Index() {
             </Link>
           ) : (
             <button
-              className="relative font-bold border-black border-2 rounded-lg bg-transparent py-2.5 px-5 uppercase transition-colors before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full before:origin-top-left before:scale-x-0 before:bg-yellow-400 before:transition-transform before:duration-300 before:content-[''] before:hover:scale-x-100"
+              className="relative font-bold border-black border-2 rounded-lg bg-transparent py-2.5 px-5 uppercase transition-colors before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full before:origin-top-left before:scale-x-0 before:bg-green-500 before:transition-transform before:duration-300 before:content-[''] before:hover:scale-x-100"
               onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
             >
               REGISTER
