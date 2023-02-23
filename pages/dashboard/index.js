@@ -1,17 +1,16 @@
 import { signOut } from "next-auth/react";
 import { useState, Fragment } from "react";
 import { useRouter } from "next/router";
-import { Transition, Dialog } from "@headlessui/react";
 import { PlusIcon } from "@heroicons/react/24/solid";
 
 import Setup from "../../components/dashboard/Setup";
 import { getUser, redirect } from "../../lib/server";
+import Link from "next/link";
 
 export default function Dashboard({ user }) {
   const router = useRouter();
   // conditional hooks are not allowed :(
   const [initialized, _setInitialized] = useState(user.initialized);
-  const [isOpen, setIsOpen] = useState(true);
   // https://www.joshwcomeau.com/nextjs/refreshing-server-side-props/
   const setInitialized = (val) => {
     _setInitialized(val);
@@ -35,9 +34,11 @@ export default function Dashboard({ user }) {
         <div className="mt-24">
           <h1 className="text-5xl font-bold font-montserrat">Submissions</h1>
           <div className="mt-4 max-w-sm h-36 rounded-lg bg-neutral-800 flex items-center justify-center">
-            <button className="group rounded-full bg-neutral-700 flex items-center justify-center w-16 h-16 hover:bg-sky-400 duration-200">
-              <PlusIcon className="w-8 h-8 fill-sky-400 group-hover:fill-white duration-200" />
-            </button>
+            <Link href="/dashboard/create-submission">
+              <button className="group rounded-full bg-neutral-700 flex items-center justify-center w-16 h-16 hover:bg-sky-400 duration-200">
+                <PlusIcon className="w-8 h-8 fill-sky-400 group-hover:fill-white duration-200" />
+              </button>
+            </Link>
           </div>
           {/* <Image src={user.image} alt="Profile Picture" width={96} height={96} />
           <h1>

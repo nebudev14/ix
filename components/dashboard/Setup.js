@@ -9,8 +9,8 @@ export default function Setup({ setInitialized }) {
   const experienceLevels = ["Beginner", "Intermediate", "Advanced"];
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(e.target.osis)
-    console.log(experience)
+    console.log(e.target.osis);
+    console.log(experience);
     // ideally some sort of red error box
     if (!e.target.osis || !experience) {
       return;
@@ -35,22 +35,6 @@ export default function Setup({ setInitialized }) {
 
   return (
     <div>
-      {/* <h1>First-time Setup</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="osis">Please enter your OSIS:</label>
-        <input type="text" id="osis" name="osis" />
-        <h1>What is your level of programming experience?</h1>
-        <input type="radio" id="beginner" name="experience" value="BEGINNER" />
-        <label htmlFor="beginner">Beginner</label>
-        <br />
-        <input type="radio" id="intermediate" name="experience" value="INTERMEDIATE" />
-        <label htmlFor="intermediate">Intermediate</label>
-        <br />
-        <input type="radio" id="advanced" name="experience" value="ADVANCED" />
-        <label htmlFor="advanced">Advanced</label>
-        <br />
-        <button type="submit">Submit</button>
-      </form> */}
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={() => setIsOpen(false)}>
           <Transition.Child
