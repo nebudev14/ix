@@ -1,23 +1,24 @@
 import { getToken } from "next-auth/jwt";
 import prisma from "../../../lib/prisma";
+import { filterBody, wrongMethod, unauthorized, missingFields } from "../../../lib/server";
 
 // TODO: server side validation of OSIS and image (link)
 export default async function handler(req, res) {
-  if (req.method != "PUT") {
-    console.log(req.method);
-    return res.status(405).json({ message: "Method Not Allowed" });
+  if (req.method != "POST") {
+    return wrongMethod();
   }
+
   const jwt = await getToken({ req });
   if (!jwt) {
-    return res.status(401).json({ message: "Unauthorized" });
+    return unauthorized();
   }
 
   // https://stackoverflow.com/questions/61190495/how-to-create-object-from-another-without-undefined-properties
   // current changeable fields
   const fields = ["osis", "name", "image", "experience", "initialized"];
-  const body = Object.fromEntries(fields.filter((field) => req.body[field]).map((field) => [field, req.body[field]]));
+  const body = filterBody(req.body, fields)
   if (body.initialized && !body.osis && !body.experience) {
-    return res.status(400).json({ message: "Bad Request - Missing required fields" });
+    return missingFields();
   }
 
   const updateUser = await prisma.user.update({

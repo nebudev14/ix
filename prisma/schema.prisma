@@ -64,7 +64,7 @@ model Submission {
   id          String   @id @default(cuid())
   title       String
   description String
-  media       String[]
+  media       String[] @default([])
   members     User[]
   tracks      Track[]  @default([GENERAL])
 }
