@@ -1,4 +1,5 @@
 import prisma from "../../../lib/prisma";
+import { getToken } from "next-auth/jwt";
 import { filterBodyAndValidate, missingFields, unauthorized, wrongMethod } from "../../../lib/server";
 
 export default async function handler(req, res) {

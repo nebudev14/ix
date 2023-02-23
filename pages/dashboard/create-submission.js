@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Switch } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/20/solid";
 
+// TODO: form validation - handle duplicate titles
 export default function CreateSubmission() {
   const [selectedTracks, selectTrack] = useState(["GENERAL"]);
 
@@ -23,17 +24,33 @@ export default function CreateSubmission() {
       name: "Sponsorship Track",
       description: "Courtesy of SPONSOR_PENDING! Your project must feature TECHNOLOGY_PENDING.",
       prizes: ["SPONSOR_CREDITS"],
-      value: "SPONSOR",
+      value: "SPONSOR_PENDING",
     },
   ];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const title = e.target.title.value;
     const description = e.target.description.value;
     if (!title || !description) return;
 
-    console.log(selectedTracks);
+    const body = JSON.stringify({
+      title,
+      description,
+      tracks: selectedTracks,
+    });
+
+    const res = await fetch("/api/submissions/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body,
+    });
+    if (res.status == 200) {
+      console.log(await res.json());
+      console.log("submission created")
+    }
   };
 
   return (
