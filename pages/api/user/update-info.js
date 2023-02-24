@@ -16,7 +16,7 @@ export default async function handler(req, res) {
   // https://stackoverflow.com/questions/61190495/how-to-create-object-from-another-without-undefined-properties
   // current changeable fields
   const fields = ["osis", "name", "image", "experience", "initialized"];
-  const body = filterBody(req.body, fields)
+  const body = filterBody(req.body, fields);
   if (body.initialized && !body.osis && !body.experience) {
     return missingFields(res);
   }

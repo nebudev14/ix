@@ -3,8 +3,8 @@ import Link from "next/link.js";
 import { useEffect } from "react";
 import { useSession, signIn } from "next-auth/react";
 import { ordinal_suffix_of } from "../lib/ordinal.js";
-import Image from "next/image"
-import Logo from "../public/assets/logo.png"
+import Image from "next/image";
+import Logo from "../public/assets/logo.png";
 
 function Index() {
   const { data: session } = useSession();

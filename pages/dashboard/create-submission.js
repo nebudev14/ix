@@ -49,7 +49,7 @@ export default function CreateSubmission() {
     });
     if (res.status == 201) {
       console.log(await res.json());
-      console.log("submission created")
+      console.log("submission created");
     }
   };
 
@@ -94,6 +94,7 @@ export default function CreateSubmission() {
                   }
                   disabled={index == 0}
                   checked={selectedTracks.includes(track.value)}
+                  key={index}
                   onChange={(state) =>
                     state
                       ? selectTrack([...selectedTracks, track.value])
@@ -109,8 +110,8 @@ export default function CreateSubmission() {
                           <span className={`flex space-x-2 ${checked ? "" : "text-cyan-200"}`}>
                             <span>Prizes: </span>
                             <ol className="flex space-x-2 list-decimal list-inside">
-                              {track.prizes.map((prize) => (
-                                <li>{prize}</li>
+                              {track.prizes.map((prize, index) => (
+                                <li key={index}>{prize}</li>
                               ))}
                             </ol>
                           </span>

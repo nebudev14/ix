@@ -20,25 +20,24 @@ export default async function handler(req, res) {
   }
 
   try {
-    const submission = await prisma.submission
-      .create({
-        data: {
-          ...body,
-          members: {
-            connect: [
-              {
-                id: jwt.sub,
-              },
-            ],
-          },
+    const submission = await prisma.submission.create({
+      data: {
+        ...body,
+        members: {
+          connect: [
+            {
+              id: jwt.sub,
+            },
+          ],
         },
-      })
+      },
+    });
     return res.status(201).json(submission);
   } catch (error) {
-    console.log(error)
+    console.log(error);
     if (error.code == "P2002") {
-        return duplicateEntry(res);
+      return duplicateEntry(res);
     }
-    return res.status(400).json({ message: "Unknown Error"})
+    return res.status(400).json({ message: "Unknown Error" });
   }
 }

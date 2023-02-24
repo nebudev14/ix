@@ -81,13 +81,14 @@ export default function Setup({ setInitialized }) {
                           <p className="mb-2 text-neutral-400">What is your level of programming experience?</p>
                         </RadioGroup.Label>
                         <div className="space-y-2">
-                          {experienceLevels.map((experience) => (
+                          {experienceLevels.map((experience, index) => (
                             <RadioGroup.Option
                               className={({ checked }) =>
                                 `${
                                   checked ? "bg-teal-600" : "bg-neutral-700"
                                 } cursor-pointer rounded-lg px-4 py-2 shadow-md w-2/5`
                               }
+                              key={index}
                               id={experience.toLowerCase()}
                               name="experience"
                               value={experience.toUpperCase()}
