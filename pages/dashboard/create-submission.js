@@ -47,7 +47,7 @@ export default function CreateSubmission() {
       },
       body,
     });
-    if (res.status == 200) {
+    if (res.status == 201) {
       console.log(await res.json());
       console.log("submission created")
     }

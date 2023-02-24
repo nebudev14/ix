@@ -27,7 +27,7 @@ export default function Setup({ setInitialized }) {
       },
       body,
     });
-    if (res.status == 200) {
+    if (res.status == 201) {
       console.log(await res.json());
       setInitialized(true);
     }

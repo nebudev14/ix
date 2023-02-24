@@ -4,13 +4,13 @@ import { filterBody, wrongMethod, unauthorized, missingFields } from "../../../l
 
 // TODO: server side validation of OSIS and image (link)
 export default async function handler(req, res) {
-  if (req.method != "POST") {
-    return wrongMethod();
+  if (req.method != "PUT") {
+    return wrongMethod(res);
   }
 
   const jwt = await getToken({ req });
   if (!jwt) {
-    return unauthorized();
+    return unauthorized(res);
   }
 
   // https://stackoverflow.com/questions/61190495/how-to-create-object-from-another-without-undefined-properties
@@ -18,7 +18,7 @@ export default async function handler(req, res) {
   const fields = ["osis", "name", "image", "experience", "initialized"];
   const body = filterBody(req.body, fields)
   if (body.initialized && !body.osis && !body.experience) {
-    return missingFields();
+    return missingFields(res);
   }
 
   const updateUser = await prisma.user.update({
@@ -29,5 +29,5 @@ export default async function handler(req, res) {
       ...body,
     },
   });
-  return res.status(200).json(updateUser);
+  return res.status(201).json(updateUser);
 }

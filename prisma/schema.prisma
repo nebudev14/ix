@@ -62,7 +62,7 @@ model User {
 
 model Submission {
   id          String   @id @default(cuid())
-  title       String
+  title       String   @unique
   description String
   media       String[] @default([])
   members     User[]
