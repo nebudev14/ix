@@ -9,7 +9,13 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
       <SessionProvider session={session}>
         <NavBar />
         <div className="content">
-          <Component {...pageProps} />
+          {Component.Layout ? (
+            <Component.Layout>
+              <Component {...pageProps} />
+            </Component.Layout>
+          ) : (
+            <Component {...pageProps} />
+          )}
         </div>
       </SessionProvider>
     </>

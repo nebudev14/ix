@@ -1,28 +1,28 @@
-import { getSubmission, getUser, notFound, unauthorized } from "../../../lib/server";
+import Layout from "../../../components/dashboard/Layout";
+import { getSubmission } from "../../../lib/server";
 
 export default function Submission({ submission }) {
-  console.log(submission)
+  console.log(submission);
+  return <div className="max-w-screen-md mx-auto py-6 p-2">
+    <h1 className="text-6xl mb-4 font-bold text-teal-300">{submission.title}</h1>
+    <p className="text-xl">{submission.description}</p>
+  </div>;
 }
 
-export async function getServerSideProps({ req, res, query: { id } }) {
-  console.log(req)
-  const submission = await getSubmission(id);
+Submission.Layout = Layout;
+
+export async function getServerSideProps({ req, query: { id } }) {
+  console.log(req);
+  const submission = await getSubmission(req, id);
   if (!submission) {
-    return notFound(res);
-  }
-  if (!submission.public) {
-    const user = await getUser(req);
-    if (!user) {
-      return unauthorized(res);
-    }
-    if (!submission.members.includes(user)) {
-      console.log(submission.members)
-      console.log(user)
-      // This is maybe not so user friendly, todo: replace
-      return unauthorized(res);
-    }
     return {
-      props: submission
-    }
+      notFound: true,
+    };
   }
+
+  return {
+    props: {
+      submission,
+    },
+  };
 }
