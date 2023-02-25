@@ -67,6 +67,8 @@ model Submission {
   media       String[] @default([])
   members     User[]
   tracks      Track[]  @default([GENERAL])
+  public      Boolean  @default(false)
+  submitted   Boolean  @default(false)
 }
 
 enum Track {

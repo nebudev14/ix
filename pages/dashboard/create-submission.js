@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Switch } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/20/solid";
+import { useRouter } from "next/router";
 
 // TODO: form validation - handle duplicate titles
 export default function CreateSubmission() {
   const [selectedTracks, selectTrack] = useState(["GENERAL"]);
+  const router = useRouter();
 
   const tracks = [
     {
@@ -48,8 +50,10 @@ export default function CreateSubmission() {
       body,
     });
     if (res.status == 201) {
-      console.log(await res.json());
+      const json = await res.json();
+      console.log(json);
       console.log("submission created");
+      router.push(`/dashboard/${json.id}`)
     }
   };
 

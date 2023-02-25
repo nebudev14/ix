@@ -31,6 +31,9 @@ export default async function handler(req, res) {
           ],
         },
       },
+      include: {
+        members: true,
+      }
     });
     return res.status(201).json(submission);
   } catch (error) {
