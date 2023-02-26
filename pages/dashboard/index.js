@@ -22,21 +22,13 @@ export default function Dashboard({ user }) {
   return (
     <>
       {!initialized && <Setup setInitialized={setInitialized} />}
-      <div className="pt-4 pl-8">
-        <div className="flex justify-between">
-          <h1 className="text-6xl font-bold">Dashboard</h1>
-          <button
-            className="mr-4 text-xl w-32 h-14 bg-red-400 rounded-full"
-            onClick={() => signOut({ callbackUrl: "/" })}
-          >
-            <p className="p-2">Sign Out</p>
-          </button>
-        </div>
+      <div className="pt-4 pl-4">
+        <h1 className="text-6xl font-bold">Dashboard</h1>
         <div className="mt-24">
           <h1 className="text-5xl font-bold font-montserrat">Submissions</h1>
           {user.submissionId ? (
             <Link href={`/dashboard/submissions/${user.submissionId}`} className="inline-block">
-              <div className="mt-4 w-80 h-36 rounded-lg bg-neutral-800 p-4">
+              <div className="mt-4 w-80 h-36 rounded-lg bg-neutral-900 p-4">
                 <h2 className="text-2xl mb-2 font-bold text-teal-300">{user.submission.title}</h2>
                 <p>{user.submission.description}</p>
               </div>

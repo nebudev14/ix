@@ -51,3 +51,7 @@ a {
 .content {
   margin-top: 56px;
 }
+
+::selection {
+  background-color: #0d9488;
+}
