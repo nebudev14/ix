@@ -5,6 +5,8 @@ import { useSession, signIn } from "next-auth/react";
 import { ordinal_suffix_of } from "../lib/ordinal.js";
 import Image from "next/image";
 import Logo from "../public/assets/logo.png";
+import ShapeRain from "../components/effects/ShapeRain.js";
+import { Parallax } from 'react-scroll-parallax'
 
 function Index() {
   const { data: session } = useSession();
@@ -18,15 +20,17 @@ function Index() {
   }, [years]);
 
   return (
-    <div>
-      <div className="flex grow items-center justify-center min-h-[calc(100vh-64px)]">
+    <>
+      <ShapeRain count={15} />
+      <Parallax y={[20, -20]}>
+      <div className="flex grow items-center justify-center min-h-[calc(100vh-64px)] ">
         {/* Left side of page */}
-        <div className="flex basis-1/2 items-end justify-end mr-12">
-          <Image className="h-72 w-64" src={Logo} alt="AtomHacks"></Image>
+        <div className="flex items-end justify-end mr-12 basis-1/2">
+          <Image className="w-64 h-72" src={Logo} alt="AtomHacks"></Image>
         </div>
 
         {/* Right side of page */}
-        <div className="flex basis-1/2 flex-col items-start justify-start ml-6">
+        <div className="flex flex-col items-start justify-start ml-6 basis-1/2">
           <h1 className="mb-2 text-5xl font-thin">
             Bronx Science&apos;s <motion.b className="text-green-500">{yearsRender}</motion.b>
             <br />
@@ -52,7 +56,8 @@ function Index() {
           )}
         </div>
       </div>
-    </div>
+      </Parallax>
+    </>
   );
 }
 
