@@ -57,14 +57,23 @@ export default function Setup({ setInitialized }) {
     if (!isValid()) {
       return;
     }
+    
+    if (hasTeam === true) {
+      setShouldMatch(null)
+    }
 
     const body = JSON.stringify({
-      osis: e.target.osis.value,
-      experience: experience,
-      initialized: true,
+      osis,
+      experience,
+      year,
+      discordHandle: discord,
+      hasTeam,
+      shouldMatchTeam: shouldMatch,
+      teamMembers: team.split(", ").map((name) => name.trim()),
     });
-    const res = await fetch("/api/user/update-info", {
-      method: "PUT",
+    console.log(body)
+    const res = await fetch("/api/user/init", {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
@@ -256,7 +265,7 @@ export default function Setup({ setInitialized }) {
                       {typeof hasTeam === "boolean" && hasTeam === true && (
                         <>
                           <label className="block text-base text-neutral-400" htmlFor="team">
-                            Who is on your team? (Doesn't have to be final)
+                            Who is on your team? (Doesn't have to be final). Please separate names with commas and a space. e.g. Guy, John, Bob
                           </label>
                           <input
                             className="mt-1 mb-4 block text-xl p-2 rounded-md bg-neutral-700 focus:outline-none shadow-lg focus:ring focus:border-teal-600 focus:ring-teal-500"

@@ -74,11 +74,14 @@ model Submission {
 }
 
 model FormInfo {
-  id            String   @id @default(cuid())
-  osis          String
-  year          Int
-  discordHandle String   @unique
-  teamMembers   String[]
+  id              String   @id @default(cuid())
+  osis            String
+  year            Int
+  discordHandle   String   @unique
+  hasTeam         Boolean
+  shouldMatchTeam Boolean?
+  teamMembers     String[] @default([])
+  experience      Experience
 
   userId String @unique
   user   User?  @relation(fields: [userId], references: [id])
