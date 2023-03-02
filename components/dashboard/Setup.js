@@ -13,7 +13,7 @@ export default function Setup({ setInitialized }) {
   const [hasTeam, setHasTeam] = useState(undefined);
   const [team, setTeam] = useState("");
   const [shouldMatch, setShouldMatch] = useState(undefined);
-  const experienceLevels = ["Beginner", "Intermediate", "Advanced"];
+  const experienceLevels = ["None", "Beginner", "Intermediate", "Advanced"];
   const graduationYears = ["2023", "2024", "2025", "2026"];
   const confirmations = ["YES", "NO"];
 
@@ -54,12 +54,10 @@ export default function Setup({ setInitialized }) {
   // to be updated
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(e.target.osis);
-    console.log(experience);
-    // ideally some sort of red error box
-    if (!e.target.osis || !experience) {
+    if (!isValid()) {
       return;
     }
+
     const body = JSON.stringify({
       osis: e.target.osis.value,
       experience: experience,
@@ -173,6 +171,7 @@ export default function Setup({ setInitialized }) {
                           <p className="mb-2 text-neutral-400">
                             Do you agree to the terms of the{" "}
                             <a
+                              target="_blank"
                               className="underline underline-offset-4 decoration-2 text-green-500"
                               href="https://docs.google.com/document/d/1fMx-8iApjgRuAs0mH2T4yCz6WGrwTwNGHS854C-fmKQ/edit"
                             >
@@ -206,6 +205,7 @@ export default function Setup({ setInitialized }) {
                           you plan on working in a team, and will also be used to give updates throughout the day. If
                           you do not have a Discord account, please sign up{" "}
                           <a
+                            target="_blank"
                             className="underline underline-offset-4 decoration-2 text-green-500"
                             href="https://discord.com/register"
                           >
@@ -287,7 +287,7 @@ export default function Setup({ setInitialized }) {
                                   }
                                   key={index}
                                   id={option ? "yes" : "no"}
-                                  name="hasTeam"
+                                  name="shouldMatch"
                                   value={option}
                                 >
                                   <span>{option ? "Yes" : "No"}</span>

@@ -46,20 +46,20 @@ model Account {
 }
 
 model User {
-  id            String      @id @default(cuid())
+  id            String    @id @default(cuid())
   name          String
-  email         String      @unique
+  email         String    @unique
   emailVerified DateTime?
   image         String?
   osis          String?
   submissionId  String?
-  initialized   Boolean     @default(false)
-  
-  accounts      Account[]
-  submission    Submission? @relation(fields: [submissionId], references: [id])
-  role          Role        @default(COMPETITOR)
-  experience    Experience?
-  formInfo      FormInfo?
+  initialized   Boolean   @default(false)
+
+  accounts   Account[]
+  submission Submission? @relation(fields: [submissionId], references: [id])
+  role       Role        @default(COMPETITOR)
+  experience Experience?
+  formInfo   FormInfo?
 }
 
 model Submission {
@@ -74,13 +74,14 @@ model Submission {
 }
 
 model FormInfo {
-  id            String   @id
+  id            String   @id @default(cuid())
+  osis          String
   year          Int
   discordHandle String   @unique
   teamMembers   String[]
 
   userId String @unique
-  user   User?   @relation(fields: [userId], references: [id])
+  user   User?  @relation(fields: [userId], references: [id])
 }
 
 enum Track {
