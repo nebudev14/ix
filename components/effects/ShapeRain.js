@@ -15,7 +15,7 @@ const ShapeRain = ({ count }) => {
             type={selectRandom(["circle", "triangle", "rect"])}
             id={i}
             key={i}
-            color={selectRandom(["brightGreen", "orange", "red", "green", "blue"])}
+            color={selectRandom(["green", "orange"])}
             reverseAnimation={Math.random() > 0.5}
             style={{
               position: "absolute",

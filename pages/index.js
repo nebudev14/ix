@@ -9,6 +9,7 @@ import ShapeRain from "../components/effects/ShapeRain.js";
 import { Parallax } from "react-scroll-parallax";
 import styles from "../styles/Home.module.css";
 import Bg from "../public/assets/g1.webp";
+import About from "../components/landing/about.js";
 
 function Index() {
   const { data: session } = useSession();
@@ -25,16 +26,16 @@ function Index() {
     <div className="overflow-hidden ">
       <div className="absolute top-0 left-0 !w-full !h-full bg-black opacity-[.87] border-b-8 border-green-500" />
       <div className="top-0 left-0 overflow-hidden !w-full !h-full absolute">
-      <Image
-        layout="responsive"
-        src={Bg}
-        alt="atomhacks 2019"
-        priority
-        quality={40}
-        objectFit="cover"
-        objectPosition={"center"}
-        className="absolute -z-10"
-      />
+        <Image
+          layout="responsive"
+          src={Bg}
+          alt="atomhacks 2019"
+          priority
+          quality={40}
+          objectFit="cover"
+          objectPosition={"center"}
+          className="absolute -z-10"
+        />
       </div>
       <div className="z-50 text-white opacity-100">
         <ShapeRain count={10} />
@@ -66,7 +67,7 @@ function Index() {
                 </Link>
               ) : (
                 <button
-                  className="relative font-bold border-black border-2 rounded-lg bg-transparent py-2.5 px-5 uppercase transition-colors before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full before:origin-top-left before:scale-x-0 before:bg-green-500 before:transition-transform before:duration-300 before:content-[''] before:hover:scale-x-100"
+                  className="relative font-bold border-green-500 border-2 rounded-lg bg-transparent py-2.5 px-5 uppercase transition-colors before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full before:origin-top-left before:scale-x-0 before:bg-green-500 before:transition-transform before:duration-300 before:content-[''] before:hover:scale-x-100"
                   onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
                 >
                   REGISTER
@@ -76,6 +77,7 @@ function Index() {
           </div>
         </Parallax>
       </div>
+      <About />
     </div>
   );
 }
