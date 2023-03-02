@@ -2,24 +2,24 @@ import Link from "next/link";
 
 const NavBar = () => {
   return (
-    <div className="fixed left-0 top-0 w-full h-16 z-10 bg-neutral-900 items-center border-b border-black">
-      <div className="m-auto flex justify-center items-center  text-white font-bold">
-        <Link className="p-3 text-4xl font-morro justify-self-start text-white mr-auto" href="/">
+    <div className="fixed top-0 left-0 z-10 items-center w-full h-16 border-b border-black bg-neutral-900">
+      <div className="flex items-center justify-center m-auto font-bold text-white">
+        <Link className="p-3 mr-auto text-4xl text-white font-morro justify-self-start" href="/">
           ATOM HACKS IX
         </Link>
         <ul className="flex font-montserrat">
           <li>
-            <Link className="p-4 hover:text-gray-500 duration-300" href="/about">
+            <Link className="p-4 duration-300 hover:text-gray-500" href="#about">
               ABOUT
             </Link>
           </li>
           <li>
-            <Link className="p-4 hover:text-gray-500 duration-300" href="/gallery">
+            <Link className="p-4 duration-300 hover:text-gray-500" href="/gallery">
               GALLERY
             </Link>
           </li>
           <li>
-            <Link className="p-4 hover:text-gray-500 duration-300" href="/sponsors">
+            <Link className="p-4 duration-300 hover:text-gray-500" href="/sponsors">
               SPONSORS
             </Link>
           </li>
