@@ -23,7 +23,7 @@ function Index() {
   }, [years]);
 
   return (
-    <div className="overflow-hidden ">
+    <div className="overflow-hidden text-white ">
       <div className="absolute top-0 left-0 !w-full !h-full bg-black opacity-[.87] border-b-8 border-green-500" />
       <div className="top-0 left-0 overflow-hidden !w-full !h-full absolute">
         <Image
@@ -77,7 +77,9 @@ function Index() {
           </div>
         </Parallax>
       </div>
-      <About />
+      <div className=" bg-zinc-900">
+        <About />
+      </div>
     </div>
   );
 }

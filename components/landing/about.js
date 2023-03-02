@@ -3,9 +3,10 @@ import Sample from "../../public/atomhackspic.JPG";
 
 const About = () => {
   return (
-    <div className="container flex gap-20 py-40 mx-auto">
+    <div className="container flex gap-20 py-40 mx-auto ">
       <div className="relative">
-        <Image className="shadow-2xl rounded-2xl" src={Sample} alt="" />
+      <div className="absolute transition duration-200 opacity-75 -inset-1 bg-gradient-to-r from-green-500 to-yellow-500 rounded-xl blur-md group-hover:opacity-100 group-hover:duration-200 animate-tilt " />
+        <Image className="relative shadow-2xl rounded-2xl" src={Sample} alt="" />
       </div>
 
       <div className="flex flex-col gap-3 my-auto">
