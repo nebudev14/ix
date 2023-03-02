@@ -7,6 +7,7 @@ import Image from "next/image";
 import Logo from "../public/assets/logo.png";
 import ShapeRain from "../components/effects/ShapeRain.js";
 import { Parallax } from 'react-scroll-parallax'
+import styles from "../styles/Home.module.css";
 
 function Index() {
   const { data: session } = useSession();
@@ -26,7 +27,9 @@ function Index() {
       <div className="flex grow items-center justify-center min-h-[calc(100vh-64px)] ">
         {/* Left side of page */}
         <div className="flex items-end justify-end mr-12 basis-1/2">
+          <div className={styles.logo}>
           <Image className="w-64 h-72" src={Logo} alt="AtomHacks"></Image>
+          </div>
         </div>
 
         {/* Right side of page */}
