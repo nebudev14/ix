@@ -10,6 +10,7 @@ import { Parallax } from "react-scroll-parallax";
 import styles from "../styles/Home.module.css";
 import Bg from "../public/atomhackspic.JPG";
 import About from "../components/landing/about.js";
+import Sponsors from "../components/landing/sponsor.js";
 
 function Index() {
   const { data: session } = useSession();
@@ -79,6 +80,7 @@ function Index() {
       </div>
       <div className=" bg-zinc-900">
         <About />
+        <Sponsors />
       </div>
     </div>
   );

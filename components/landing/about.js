@@ -20,7 +20,7 @@ const content = [
 
 const About = () => {
   return (
-    <div id="about" className="flex flex-col py-24 border-b-8 border-yellow-500 ">
+    <div id="about" className="flex flex-col py-24 border-b-8 border-yellow-500">
       <div className="flex items-center justify-center">
         <span className="py-6 border-b-4 border-green-500 text-7xl font-morro">ABOUT</span>
       </div>

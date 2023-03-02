@@ -14,13 +14,13 @@ const NavBar = () => {
             </Link>
           </li>
           <li>
-            <Link className="p-4 duration-300 hover:text-gray-500" href="/gallery">
-              GALLERY
+            <Link className="p-4 duration-300 hover:text-gray-500" href="#sponsors">
+              SPONSORS
             </Link>
           </li>
           <li>
-            <Link className="p-4 duration-300 hover:text-gray-500" href="/sponsors">
-              SPONSORS
+            <Link className="p-4 duration-300 hover:text-gray-500" href="/gallery">
+              GALLERY
             </Link>
           </li>
         </ul>
