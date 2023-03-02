@@ -1,12 +1,10 @@
-import { ArrowLeftIcon } from "@heroicons/react/24/solid";
-
 import Layout from "../../../components/dashboard/Layout";
 import { getSubmission } from "../../../lib/server";
 
 export default function Submission({ submission }) {
   return (
-    <div className="max-w-screen-md mx-auto py-6 p-2">
-      <h1 className="text-6xl mb-4 font-bold text-teal-300">{submission.title}</h1>
+    <div className="max-w-screen-md p-2 py-6 mx-auto">
+      <h1 className="mb-4 text-6xl font-bold text-teal-300">{submission.title}</h1>
       <p className="text-xl">{submission.description}</p>
     </div>
   );

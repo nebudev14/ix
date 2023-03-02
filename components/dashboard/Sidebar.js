@@ -53,7 +53,7 @@ export default function Sidebar() {
     <div
       className={`${styles.sidebar} h-[calc(100vh-56px)] w-56 shadow-lg bg-neutral-900 text-neutral-200 fixed flex space-y-4 flex-col text-lg`}
     >
-      <ul className="h-full flex flex-col">
+      <ul className="flex flex-col h-full">
         <div className="p-4">
           <li className="mb-2">
             <Link href="/dashboard">
@@ -68,8 +68,8 @@ export default function Sidebar() {
           </li>
           <span class="block w-full p-px bg-neutral-800 mb-4"></span>
           <div className="space-y-4">
-            {routes.map((route) => (
-              <li>
+            {routes.map((route, i) => (
+              <li key={i}>
                 <Link
                   href={route.path}
                   className={`${
@@ -84,12 +84,12 @@ export default function Sidebar() {
         </div>
         {status == "authenticated" && (
           <div className="mt-auto">
-            <li className="p-2 flex items-center">
+            <li className="flex items-center p-2">
               {data.user.image && <Image src={data.user.image} className="mr-2 rounded-full" width={48} height={48} />}
               <h1 className="text-xl">{data.user.name}</h1>
             </li>
             <li>
-              <button className="text-xl w-full h-14 bg-black font-bold" onClick={() => signOut({ callbackUrl: "/" })}>
+              <button className="w-full text-xl font-bold bg-black h-14" onClick={() => signOut({ callbackUrl: "/" })}>
                 <p className="p-2">Sign Out</p>
               </button>
             </li>

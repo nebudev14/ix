@@ -1,4 +1,3 @@
-import { signOut } from "next-auth/react";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { PlusIcon } from "@heroicons/react/24/solid";
@@ -28,16 +27,16 @@ export default function Dashboard({ user }) {
           <h1 className="text-5xl font-bold font-montserrat">Submissions</h1>
           {user.submissionId ? (
             <Link href={`/dashboard/submissions/${user.submissionId}`} className="inline-block">
-              <div className="mt-4 w-80 h-36 rounded-lg bg-neutral-900 p-4">
-                <h2 className="text-2xl mb-2 font-bold text-teal-300">{user.submission.title}</h2>
+              <div className="p-4 mt-4 rounded-lg w-80 h-36 bg-neutral-900">
+                <h2 className="mb-2 text-2xl font-bold text-teal-300">{user.submission.title}</h2>
                 <p>{user.submission.description}</p>
               </div>
             </Link>
           ) : (
-            <div className="mt-4 max-w-sm h-36 rounded-lg bg-neutral-800 flex items-center justify-center">
+            <div className="flex items-center justify-center max-w-sm mt-4 rounded-lg h-36 bg-neutral-800">
               <Link href="/dashboard/create-submission">
-                <button className="group rounded-full bg-neutral-700 flex items-center justify-center w-16 h-16 hover:bg-sky-400 duration-200">
-                  <PlusIcon className="w-8 h-8 fill-sky-400 group-hover:fill-white duration-200" />
+                <button className="flex items-center justify-center w-16 h-16 duration-200 rounded-full group bg-neutral-700 hover:bg-sky-400">
+                  <PlusIcon className="w-8 h-8 duration-200 fill-sky-400 group-hover:fill-white" />
                 </button>
               </Link>
             </div>

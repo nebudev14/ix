@@ -8,7 +8,7 @@ import Logo from "../public/assets/logo.png";
 import ShapeRain from "../components/effects/ShapeRain.js";
 import { Parallax } from "react-scroll-parallax";
 import styles from "../styles/Home.module.css";
-import Bg from "../public/assets/g1.webp";
+import Bg from "../public/atomhackspic.JPG";
 import About from "../components/landing/about.js";
 
 function Index() {
@@ -24,7 +24,7 @@ function Index() {
 
   return (
     <div className="overflow-hidden text-white ">
-      <div className="absolute top-0 left-0 !w-full !h-full bg-black opacity-[.87] border-b-8 border-green-500" />
+      <div className="absolute top-0 left-0 !w-full !h-full bg-black opacity-[.82] border-b-8 border-green-500" />
       <div className="top-0 left-0 overflow-hidden !w-full !h-full absolute">
         <Image
           layout="responsive"
