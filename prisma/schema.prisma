@@ -54,10 +54,12 @@ model User {
   osis          String?
   submissionId  String?
   initialized   Boolean     @default(false)
+  
   accounts      Account[]
   submission    Submission? @relation(fields: [submissionId], references: [id])
   role          Role        @default(COMPETITOR)
   experience    Experience?
+  formInfo      FormInfo?
 }
 
 model Submission {
@@ -71,6 +73,16 @@ model Submission {
   submitted   Boolean  @default(false)
 }
 
+model FormInfo {
+  id            String   @id
+  year          Int
+  discordHandle String   @unique
+  teamMembers   String[]
+
+  userId String @unique
+  user   User?   @relation(fields: [userId], references: [id])
+}
+
 enum Track {
   GENERAL
   BEGINNER
@@ -78,6 +90,7 @@ enum Track {
 }
 
 enum Experience {
+  NONE
   BEGINNER
   INTERMEDIATE
   ADVANCED
