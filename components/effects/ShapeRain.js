@@ -35,8 +35,8 @@ const ShapeRain = ({ count }) => {
   })
 
   return (
-    <div className="absolute w-full h-full overflow-hidden">
-      <div className="absolute h-[200%] w-full animate-slow-slide">
+    <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+      <div className="absolute w-full h-full animate-slow-slide">
         <div className="relative h-full">{shapesArray}</div>
         <div className="relative h-full">{shapesArray}</div>
       </div>
