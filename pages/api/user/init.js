@@ -1,6 +1,6 @@
 import { getToken } from "next-auth/jwt";
 import prisma from "../../../lib/prisma";
-import { filterBody, wrongMethod, unauthorized, missingFields, filterBodyAndValidate } from "../../../lib/server";
+import { wrongMethod, unauthorized, missingFields, filterBodyAndValidate } from "../../../lib/server";
 
 export default async function handler(req, res) {
   if (req.method != "POST") {
@@ -25,6 +25,7 @@ export default async function handler(req, res) {
     data: {
       osis: body.osis,
       experience: body.experience,
+      initialized: true,
       formInfo: {
         create: {
           ...body,
