@@ -57,7 +57,7 @@ export default function Setup({ setInitialized }) {
     if (!isValid()) {
       return;
     }
-    
+
     if (hasTeam === true) {
       setShouldMatch(null)
     }
@@ -103,7 +103,7 @@ export default function Setup({ setInitialized }) {
           </Transition.Child>
 
           <div className="fixed inset-0 overflow-y-auto font-montserrat">
-            <div className="flex min-h-full items-center justify-center p-4 text-center">
+            <div className="flex items-center justify-center min-h-full p-4 text-center">
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -113,8 +113,8 @@ export default function Setup({ setInitialized }) {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-xl transform overflow-hidden rounded-2xl bg-neutral-800 p-6 text-left align-middle shadow-xl transition-all">
-                  <Dialog.Title as="h2" className="text-2xl font-medium leading-6 text-white mb-6">
+                <Dialog.Panel className="w-full max-w-xl p-6 overflow-hidden text-left align-middle transition-all transform shadow-xl rounded-2xl bg-neutral-800">
+                  <Dialog.Title as="h2" className="mb-6 text-2xl font-medium leading-6 text-white">
                     First-time Setup
                   </Dialog.Title>
                   <div className="mt-2 text-neutral-300">
@@ -123,7 +123,7 @@ export default function Setup({ setInitialized }) {
                         OSIS:
                       </label>
                       <input
-                        className="mt-1 mb-4 block text-xl p-2 rounded-md bg-neutral-700 focus:outline-none shadow-lg focus:ring focus:border-teal-600 focus:ring-teal-500"
+                        className="block p-2 mt-1 mb-4 text-xl rounded-md shadow-lg bg-neutral-700 focus:outline-none focus:ring focus:border-teal-600 focus:ring-teal-500"
                         type="text"
                         value={osis}
                         id="osis"
@@ -181,7 +181,8 @@ export default function Setup({ setInitialized }) {
                             Do you agree to the terms of the{" "}
                             <a
                               target="_blank"
-                              className="underline underline-offset-4 decoration-2 text-green-500"
+                              rel="noreferrer"
+                              className="text-green-500 underline underline-offset-4 decoration-2"
                               href="https://docs.google.com/document/d/1fMx-8iApjgRuAs0mH2T4yCz6WGrwTwNGHS854C-fmKQ/edit"
                             >
                               Bronx Science AtomHacks Code of Conduct?
@@ -207,7 +208,7 @@ export default function Setup({ setInitialized }) {
                           ))}
                         </div>
                       </RadioGroup>
-                      <div className="bg-neutral-700 rounded-md p-4 space-y-4">
+                      <div className="p-4 space-y-4 rounded-md bg-neutral-700">
                         <h1 className="text-2xl">Information Regarding Discord</h1>
                         <p>
                           We will be using Discord for communications throughout the hackathon. Discord will be used if
@@ -215,7 +216,8 @@ export default function Setup({ setInitialized }) {
                           you do not have a Discord account, please sign up{" "}
                           <a
                             target="_blank"
-                            className="underline underline-offset-4 decoration-2 text-green-500"
+                            rel="noreferrer"
+                            className="text-green-500 underline underline-offset-4 decoration-2"
                             href="https://discord.com/register"
                           >
                             here.
@@ -232,7 +234,7 @@ export default function Setup({ setInitialized }) {
                         Discord Username with tag (e.g. Guy#1234)
                       </label>
                       <input
-                        className="mt-1 mb-4 block text-xl p-2 rounded-md bg-neutral-700 focus:outline-none shadow-lg focus:ring focus:border-teal-600 focus:ring-teal-500"
+                        className="block p-2 mt-1 mb-4 text-xl rounded-md shadow-lg bg-neutral-700 focus:outline-none focus:ring focus:border-teal-600 focus:ring-teal-500"
                         type="text"
                         id="discord"
                         name="discord"
@@ -265,10 +267,10 @@ export default function Setup({ setInitialized }) {
                       {typeof hasTeam === "boolean" && hasTeam === true && (
                         <>
                           <label className="block text-base text-neutral-400" htmlFor="team">
-                            Who is on your team? (Doesn't have to be final). Please separate names with commas and a space. e.g. Guy, John, Bob
+                            Who is on your team? (Doesn&apos;t have to be final). Please separate names with commas and a space. e.g. Guy, John, Bob
                           </label>
                           <input
-                            className="mt-1 mb-4 block text-xl p-2 rounded-md bg-neutral-700 focus:outline-none shadow-lg focus:ring focus:border-teal-600 focus:ring-teal-500"
+                            className="block p-2 mt-1 mb-4 text-xl rounded-md shadow-lg bg-neutral-700 focus:outline-none focus:ring focus:border-teal-600 focus:ring-teal-500"
                             type="text"
                             id="team"
                             name="team"
@@ -310,7 +312,7 @@ export default function Setup({ setInitialized }) {
                         <button
                           type="submit"
                           disabled={isValid() ? false : true}
-                          className="transition duration-200 inline-flex justify-center rounded-md border border-transparent bg-teal-500 px-4 py-2 text-sm font-medium text-white hover:bg-teal-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:bg-teal-600"
+                          className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white transition duration-200 bg-teal-500 border border-transparent rounded-md hover:bg-teal-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:bg-teal-600"
                           onClick={() => setIsOpen(false)}
                         >
                           Submit
