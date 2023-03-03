@@ -1,3 +1,12 @@
-function Gallery() {}
+import Gallery from "../components/landing/gallery";
 
-export default Gallery;
+function GalleryPage() {
+  return (
+    <div>
+      {" "}
+      <Gallery />
+    </div>
+  );
+}
+
+export default GalleryPage;
