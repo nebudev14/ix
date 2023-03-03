@@ -8,7 +8,7 @@ import Logo from "../public/assets/logo.png";
 import ShapeRain from "../components/effects/ShapeRain.js";
 import { Parallax } from "react-scroll-parallax";
 import styles from "../styles/Home.module.css";
-import Bg from "../public/atomhackspic.JPG";
+import Bg from "../public/atomhackspic.jpg";
 import About from "../components/landing/about.js";
 import Sponsors from "../components/landing/sponsor.js";
 
